@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Conoce el menú de El Vilsito Taquería.">
+    <meta name="description" content="Conoce el menú de El Vilsito Taquería." data-i18n="metaDescription">
 
     <title>El Vilsito | Taquería</title>
-    
+
+    <!-- Fuentes tipográficas -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Archivos CSS y JavaScript -->
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
@@ -22,38 +22,58 @@
     <!-- ENCABEZADO -->
     <header class="header">
 
-        <a href="#inicio" class="logo">
+        <a href="#inicio" class="logo" aria-label="El Vilsito - Inicio">
             <span>EL VILSITO</span>
             <small>TAQUERÍA <i></i></small>
         </a>
 
-        <!-- Botón para dispositivos móviles -->
         <button class="menu-toggle"
                 id="menuToggle"
+                type="button"
                 aria-label="Abrir menú de navegación"
-                aria-expanded="false">
+                aria-expanded="false"
+                aria-controls="navigation">
             ☰
         </button>
 
         <!-- NAVEGACIÓN PRINCIPAL -->
-        <nav class="nav" id="navigation">
+        <nav class="nav" id="navigation" aria-label="Navegación principal">
 
-            <a href="#inicio">Inicio</a>
+            <a href="#inicio" data-i18n="navHome">Inicio</a>
 
-            <a href="#menu">Menú</a>
+            <a href="#menu" data-i18n="navMenu">Menú</a>
 
-            <!-- Abre directamente Google Maps -->
-            <a href="https://www.google.com/maps/search/?api=1&query=El+Vilsito+Pet%C3%A9n+248+Narvarte+Poniente+Ciudad+de+M%C3%A9xico"
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=El+Vilsito+Pet%C3%A9n+248+Narvarte+Poniente+Ciudad+de+M%C3%A9xico"
                target="_blank"
-               rel="noopener noreferrer">
+               rel="noopener noreferrer"
+               data-i18n="navLocation">
                 Ubicación
             </a>
 
-            <!-- Contacto lleva a ubicación y horarios -->
-            <a href="#ubicacion">Contacto</a>
+            <a href="#ubicacion" data-i18n="navContact">Contacto</a>
 
-            <!-- Facturación tiene su propia sección -->
-            <a href="#facturacion">Facturación</a>
+            <a href="#facturacion" data-i18n="navBilling">Facturación</a>
+
+            <!-- SELECTOR DE IDIOMA -->
+            <div class="language-selector" role="group" aria-label="Seleccionar idioma">
+
+                <button type="button"
+                        class="language-btn active"
+                        data-lang="es"
+                        aria-pressed="true">
+                    ES
+                </button>
+
+                <span aria-hidden="true">|</span>
+
+                <button type="button"
+                        class="language-btn"
+                        data-lang="en"
+                        aria-pressed="false">
+                    EN
+                </button>
+
+            </div>
 
         </nav>
 
@@ -67,36 +87,38 @@
 
             <div class="hero-content">
 
-                <span class="eyebrow">
+                <span class="eyebrow" data-i18n="heroEyebrow">
                     EL MEJOR PASTOR DE MÉXICO.
                 </span>
 
                 <h1>
                     EL VILSITO
-                    <span>TAQUERÍA</span>
+                    <span data-i18n="brandSubtitle">TAQUERÍA</span>
                 </h1>
 
                 <p>
-                    Tacos, gringas, quesadillas y mucho más.
-                    <strong>¡El antojo se respeta!</strong>
+                    <span data-i18n="heroDescription">
+                        Tacos, gringas, quesadillas y mucho más.
+                    </span>
+                    <strong data-i18n="heroSlogan">¡El antojo se respeta!</strong>
                 </p>
 
-                <a href="#menu" class="button">
+                <a href="#menu" class="button" data-i18n="heroButton">
                     EXPLORA NUESTRO MENÚ ↓
                 </a>
 
             </div>
 
-            <!-- Imagen de fondo configurada desde styles.css -->
             <div class="hero-photo"
                  role="img"
-                 aria-label="Imagen de El Vilsito">
+                 aria-label="Imagen de El Vilsito"
+                 data-i18n-aria="heroImageAlt">
             </div>
 
             <span class="hero-stamp">
-                HECHO
+                <span data-i18n="stampMade">HECHO</span>
                 <br>
-                CON SABOR
+                <span data-i18n="stampFlavor">CON SABOR</span>
             </span>
 
         </section>
@@ -107,15 +129,16 @@
 
             <div class="section-heading">
 
-                <span class="eyebrow red-text">
+                <span class="eyebrow red-text" data-i18n="menuEyebrow">
                     DIRECTO AL ANTOJO
                 </span>
 
                 <h2>
-                    ELIGE TU <span>ANTOJO</span>
+                    <span data-i18n="menuHeadingFirst">ELIGE TU</span>
+                    <span data-i18n="menuHeadingSecond">ANTOJO</span>
                 </h2>
 
-                <p>
+                <p data-i18n="menuDescription">
                     Encuentra tu favorito y disfruta el sabor de El Vilsito.
                 </p>
 
@@ -128,59 +151,79 @@
                 <div class="filters" id="filters">
 
                     <button class="filter active"
-                            data-category="Todos">
+                            type="button"
+                            data-category="Todos"
+                            data-i18n="categoryAll">
                         Todos
                     </button>
 
                     <button class="filter"
-                            data-category="Tacos">
+                            type="button"
+                            data-category="Tacos"
+                            data-i18n="categoryTacos">
                         Tacos
                     </button>
 
                     <button class="filter"
-                            data-category="Especialidades">
+                            type="button"
+                            data-category="Especialidades"
+                            data-i18n="categorySpecialties">
                         Especialidades
                     </button>
 
                     <button class="filter"
-                            data-category="Tortas">
+                            type="button"
+                            data-category="Tortas"
+                            data-i18n="categoryTortas">
                         Tortas
                     </button>
 
                     <button class="filter"
-                            data-category="Complementos">
+                            type="button"
+                            data-category="Complementos"
+                            data-i18n="categorySides">
                         Complementos
                     </button>
 
                     <button class="filter"
-                            data-category="Bebidas">
+                            type="button"
+                            data-category="Bebidas"
+                            data-i18n="categoryDrinks">
                         Bebidas
                     </button>
 
                     <button class="filter"
-                            data-category="Refrescos">
+                            type="button"
+                            data-category="Refrescos"
+                            data-i18n="categorySodas">
                         Refrescos
                     </button>
 
                     <button class="filter"
-                            data-category="Cervezas">
+                            type="button"
+                            data-category="Cervezas"
+                            data-i18n="categoryBeer">
                         Cervezas
                     </button>
 
                     <button class="filter"
-                            data-category="Postres">
+                            type="button"
+                            data-category="Postres"
+                            data-i18n="categoryDesserts">
                         Postres
                     </button>
 
                     <button class="filter"
-                            data-category="Paletas">
+                            type="button"
+                            data-category="Paletas"
+                            data-i18n="categoryPopsicles">
                         Paletas
                     </button>
 
                 </div>
 
 
-                <!-- Buscador de productos -->
+                <!-- BUSCADOR DE PRODUCTOS -->
                 <label class="search-box">
 
                     <span aria-hidden="true">⌕</span>
@@ -189,7 +232,9 @@
                         type="search"
                         id="searchInput"
                         placeholder="Buscar en el menú..."
-                        aria-label="Buscar productos">
+                        data-i18n-placeholder="searchPlaceholder"
+                        aria-label="Buscar productos"
+                        data-i18n-aria="searchLabel">
 
                 </label>
 
@@ -199,11 +244,11 @@
             <!-- CONTADOR DE PRODUCTOS -->
             <div class="results-line">
 
-                <span id="resultsCount">
+                <span id="resultsCount" data-i18n="loadingMenu">
                     CARGANDO MENÚ...
                 </span>
 
-                <span>
+                <span data-i18n="menuBrandLabel">
                     EL VILSITO · TAQUERÍA
                 </span>
 
@@ -217,7 +262,7 @@
 
 
             <!-- MENSAJE CUANDO NO HAY RESULTADOS -->
-            <p class="no-results" id="noResults" hidden>
+            <p class="no-results" id="noResults" hidden data-i18n="noResults">
                 No encontramos productos con esa búsqueda.
                 Intenta con otro nombre o categoría.
             </p>
@@ -230,17 +275,17 @@
 
             <div class="drinks-heading">
 
-                <span class="eyebrow">
+                <span class="eyebrow" data-i18n="drinksEyebrow">
                     PARA ACOMPAÑAR
                 </span>
 
-                <h2>
+                <h2 data-i18n="drinksHeading">
                     REFRESCA
                     <br>
                     TU ANTOJO.
                 </h2>
 
-                <p>
+                <p data-i18n="drinksDescription">
                     Algo rico para completar tu comida.
                 </p>
 
@@ -248,7 +293,8 @@
 
             <div class="drinks-image"
                  role="img"
-                 aria-label="Bebidas para acompañar tus tacos">
+                 aria-label="Bebidas para acompañar tus tacos"
+                 data-i18n-aria="drinksImageAlt">
             </div>
 
         </section>
@@ -259,17 +305,17 @@
 
             <div>
 
-                <span class="eyebrow red-text">
+                <span class="eyebrow red-text" data-i18n="locationEyebrow">
                     VEN A VISITARNOS
                 </span>
 
-                <h2>
+                <h2 data-i18n="locationHeading">
                     EL SABOR
                     <br>
                     ESTÁ AQUÍ.
                 </h2>
 
-                <p id="addressText">
+                <p id="addressText" data-i18n="addressDescription">
                     Petén 248, esquina con Avenida Universidad,
                     colonia Narvarte Poniente, alcaldía Benito Juárez,
                     C.P. 03020, Ciudad de México.
@@ -283,13 +329,13 @@
                 <!-- DIRECCIÓN -->
                 <div class="detail">
 
-                    <span class="detail-icon">⌖</span>
+                    <span class="detail-icon" aria-hidden="true">⌖</span>
 
                     <div>
 
-                        <h3>UBICACIÓN</h3>
+                        <h3 data-i18n="locationLabel">UBICACIÓN</h3>
 
-                        <p>
+                        <p data-i18n="locationFullAddress">
                             Petén 248 y esquina con Av. Universidad,
                             colonia Narvarte Poniente, alcaldía Benito Juárez,
                             C.P. 03020, Ciudad de México, CDMX.
@@ -303,19 +349,19 @@
                 <!-- HORARIOS -->
                 <div class="detail">
 
-                    <span class="detail-icon">◷</span>
+                    <span class="detail-icon" aria-hidden="true">◷</span>
 
                     <div>
 
-                        <h3>HORARIOS</h3>
+                        <h3 data-i18n="hoursHeading">HORARIOS</h3>
 
-                        <p>Lunes 1:00 p. m. a 3:00 a. m.</p>
-                        <p>Martes 1:00 p. m. a 3:00 a. m.</p>
-                        <p>Miércoles 1:00 p. m. a 3:00 a. m.</p>
-                        <p>Jueves 1:00 p. m. a 3:00 a. m.</p>
-                        <p>Viernes 1:00 p. m. a 5:00 a. m.</p>
-                        <p>Sábado 1:00 p. m. a 5:00 a. m.</p>
-                        <p>Domingo 1:00 p. m. a 1:00 a. m.</p>
+                        <p data-i18n="hoursMonday">Lunes 1:00 p. m. a 3:00 a. m.</p>
+                        <p data-i18n="hoursTuesday">Martes 1:00 p. m. a 3:00 a. m.</p>
+                        <p data-i18n="hoursWednesday">Miércoles 1:00 p. m. a 3:00 a. m.</p>
+                        <p data-i18n="hoursThursday">Jueves 1:00 p. m. a 3:00 a. m.</p>
+                        <p data-i18n="hoursFriday">Viernes 1:00 p. m. a 5:00 a. m.</p>
+                        <p data-i18n="hoursSaturday">Sábado 1:00 p. m. a 5:00 a. m.</p>
+                        <p data-i18n="hoursSunday">Domingo 1:00 p. m. a 1:00 a. m.</p>
 
                     </div>
 
@@ -323,11 +369,12 @@
 
 
                 <!-- BOTÓN DE GOOGLE MAPS -->
-                <a href="https://www.google.com/maps/search/?api=1&query=El+Vilsito+Pet%C3%A9n+248+Narvarte+Poniente+Ciudad+de+M%C3%A9xico"
+                <a href="https://www.google.com/maps/search/?api=1&amp;query=El+Vilsito+Pet%C3%A9n+248+Narvarte+Poniente+Ciudad+de+M%C3%A9xico"
                    class="button"
                    id="mapsButton"
                    target="_blank"
-                   rel="noopener noreferrer">
+                   rel="noopener noreferrer"
+                   data-i18n="directionsButton">
 
                     CÓMO LLEGAR ↗
 
@@ -344,10 +391,11 @@
             <div class="billing-content">
 
                 <h2>
-                    ¿NECESITAS TU <span>FACTURA?</span>
+                    <span data-i18n="billingHeadingFirst">¿NECESITAS TU</span>
+                    <span data-i18n="billingHeadingSecond">FACTURA?</span>
                 </h2>
 
-                <p class="billing-description">
+                <p class="billing-description" data-i18n="billingDescription">
                     ¿Necesitas facturar tu consumo? Consulta los requisitos
                     y comunícate con nosotros a través de nuestros medios de contacto.
                 </p>
@@ -356,22 +404,24 @@
                 <!-- REQUISITOS DE FACTURACIÓN -->
                 <div class="billing-card">
 
-                    <div class="billing-icon">▤</div>
+                    <div class="billing-icon" aria-hidden="true">▤</div>
 
-                    <h3>REQUISITOS DE FACTURACIÓN</h3>
+                    <h3 data-i18n="billingRequirementsHeading">
+                        REQUISITOS DE FACTURACIÓN
+                    </h3>
 
-                    <p>
+                    <p data-i18n="billingRequirementsDescription">
                         Para solicitar tu factura, ten preparados los siguientes datos:
                     </p>
 
                     <ul class="billing-requirements">
-                        <li>Ticket de compra.</li>
-                        <li>RFC.</li>
-                        <li>Nombre o razón social.</li>
-                        <li>Código postal y régimen fiscal.</li>
-                        <li>Uso del CFDI.</li>
-                        <li>Método o forma de pago.</li>
-                        <li>Correo electrónico para recibir tu factura.</li>
+                        <li data-i18n="billingTicket">Ticket de compra.</li>
+                        <li data-i18n="billingRFC">RFC.</li>
+                        <li data-i18n="billingName">Nombre o razón social.</li>
+                        <li data-i18n="billingPostal">Código postal y régimen fiscal.</li>
+                        <li data-i18n="billingCFDI">Uso del CFDI.</li>
+                        <li data-i18n="billingPayment">Método o forma de pago.</li>
+                        <li data-i18n="billingEmail">Correo electrónico para recibir tu factura.</li>
                     </ul>
 
                 </div>
@@ -380,11 +430,13 @@
                 <!-- MEDIOS PARA SOLICITAR FACTURA -->
                 <div class="billing-card">
 
-                    <div class="billing-icon">✉</div>
+                    <div class="billing-icon" aria-hidden="true">✉</div>
 
-                    <h3>¿DÓNDE PUEDES SOLICITARLA?</h3>
+                    <h3 data-i18n="billingContactHeading">
+                        ¿DÓNDE PUEDES SOLICITARLA?
+                    </h3>
 
-                    <p>
+                    <p data-i18n="billingContactDescription">
                         Comunícate con nosotros para recibir información
                         sobre el proceso de facturación.
                     </p>
@@ -393,22 +445,28 @@
 
                         <div class="billing-contact-item">
 
-                            <span>☎</span>
+                            <span aria-hidden="true">☎</span>
 
                             <div>
-                                <strong>TELÉFONO</strong>
-                                <p>5527444249</p>
+                                <strong data-i18n="phoneLabel">TELÉFONO</strong>
+                                <p>
+                                    <a href="tel:+525527444249">5527444249</a>
+                                </p>
                             </div>
 
                         </div>
 
                         <div class="billing-contact-item">
 
-                            <span>✉</span>
+                            <span aria-hidden="true">✉</span>
 
                             <div>
-                                <strong>CORREO ELECTRÓNICO</strong>
-                                <p>isidrohernandez1@hotmail.com</p>
+                                <strong data-i18n="emailLabel">CORREO ELECTRÓNICO</strong>
+                                <p>
+                                    <a href="mailto:isidrohernandez1@hotmail.com">
+                                        isidrohernandez1@hotmail.com
+                                    </a>
+                                </p>
                             </div>
 
                         </div>
@@ -422,11 +480,13 @@
                 <div class="billing-notice">
 
                     <div class="billing-notice-heading">
-                        <span>!</span>
-                        <h3>IMPORTANTE: ANTES DE SOLICITAR TU FACTURA</h3>
+                        <span aria-hidden="true">!</span>
+                        <h3 data-i18n="billingNoticeHeading">
+                            IMPORTANTE: ANTES DE SOLICITAR TU FACTURA
+                        </h3>
                     </div>
 
-                    <p>
+                    <p data-i18n="billingNoticeDescription">
                         No olvides confirmar el uso de tu CFDI, enviar una foto
                         del ticket de consumo e indicar la forma de pago. En caso
                         de haber pagado con tarjeta, también deberás enviar una
@@ -434,11 +494,11 @@
                     </p>
 
                     <p class="billing-deadline">
-                        <strong>
+                        <strong data-i18n="billingDeadline">
                             Solicita tu factura dentro del mismo mes en que
-                            realizaste tu consumo.
+                            realizaste tu consumo. Después de este plazo,
+                            no podremos emitirla.
                         </strong>
-                        Después de este plazo, no podremos emitirla.
                     </p>
 
                 </div>
@@ -462,22 +522,19 @@
         </a>
 
 
-        <p>
+        <p data-i18n="footerSlogan">
             EL MEJOR PASTOR DE MÉXICO.
         </p>
 
 
-        <!-- REGRESAR AL INICIO -->
-        <a href="#inicio" class="footer-link">
+        <a href="#inicio" class="footer-link" data-i18n="footerBackToTop">
             VOLVER AL INICIO ↑
         </a>
 
 
         <small class="copyright">
-
             © <span id="year"></span>
-            El Vilsito. Todos los derechos reservados.
-
+            <span data-i18n="copyright">El Vilsito. Todos los derechos reservados.</span>
         </small>
 
     </footer>
