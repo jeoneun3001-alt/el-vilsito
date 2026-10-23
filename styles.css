@@ -1,3 +1,4 @@
+
 :root {
     --blue: #082b59;
     --blue-dark: #041a37;
@@ -110,38 +111,57 @@ img {
 .nav a {
     font-size: 13px;
     font-weight: 700;
-    transition: color 0.2s;
+    transition: color 0.25s ease;
 }
 
 .nav a:hover {
     color: #ff6974;
 }
 
+/* BOTONES PRINCIPALES */
+
 .button {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    padding: 14px 23px;
+    gap: 10px;
+    padding: 14px 24px;
     background: var(--red);
     color: var(--white);
     border: 2px solid var(--red);
-    border-radius: 7px;
+    border-radius: 8px;
     font-size: 12px;
     font-weight: 800;
-    letter-spacing: 0.3px;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 5px 12px rgba(237, 38, 52, 0.18);
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
 .button:hover {
-    background: #c91928;
-    border-color: #c91928;
-    transform: translateY(-2px);
+    background: #cf1929;
+    border-color: #cf1929;
+    box-shadow: 0 8px 18px rgba(237, 38, 52, 0.28);
+    transform: translateY(-3px);
+}
+
+.button:active {
+    transform: translateY(-1px) scale(0.98);
 }
 
 .button-small {
-    padding: 12px 18px;
+    padding: 11px 18px;
+    border-radius: 7px;
     white-space: nowrap;
+    box-shadow: none;
+}
+
+.button-small:hover {
+    box-shadow: 0 5px 12px rgba(237, 38, 52, 0.2);
 }
 
 .menu-toggle {
@@ -151,6 +171,51 @@ img {
     border: 0;
     font-size: 27px;
     cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.menu-toggle:hover {
+    color: #ff6974;
+    transform: scale(1.05);
+}
+
+/* SELECTOR DE IDIOMA */
+
+.language-selector {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.language-btn {
+    min-width: 35px;
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 25px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.language-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.language-btn.active {
+    background: #ffffff;
+    color: var(--blue-dark);
+}
+
+.language-selector > span {
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 11px;
 }
 
 /* PORTADA */
@@ -304,52 +369,89 @@ img {
 .filters {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
 }
 
 .filter {
-    padding: 10px 17px;
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    background: var(--white);
+    padding: 11px 19px;
+    border: 1px solid #dfe5ed;
+    border-radius: 30px;
+    background: #ffffff;
     color: var(--blue);
     font-size: 12px;
     font-weight: 800;
     cursor: pointer;
-    transition: all 0.2s;
+    box-shadow: 0 2px 5px rgba(8, 43, 89, 0.03);
+    transition:
+        color 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
 
-.filter:hover,
+.filter:hover {
+    border-color: var(--red);
+    color: var(--red);
+    transform: translateY(-2px);
+}
+
 .filter.active {
     background: var(--red);
-    color: var(--white);
+    color: #ffffff;
     border-color: var(--red);
+    box-shadow: 0 4px 10px rgba(237, 38, 52, 0.2);
+}
+
+.filter.active:hover {
+    background: #cf1929;
+    color: #ffffff;
+    border-color: #cf1929;
+}
+
+.filter:active {
+    transform: scale(0.97);
 }
 
 .search-box {
-    min-width: 220px;
+    min-width: 240px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 0 12px;
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    background: var(--light);
+    gap: 10px;
+    padding: 0 16px;
+    border: 1px solid #dfe5ed;
+    border-radius: 30px;
+    background: #f8f9fb;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background 0.25s ease;
+}
+
+.search-box:focus-within {
+    background: #ffffff;
+    border-color: var(--red);
+    box-shadow: 0 0 0 4px rgba(237, 38, 52, 0.09);
 }
 
 .search-box span {
-    color: var(--blue);
-    font-size: 25px;
+    color: var(--red);
+    font-size: 23px;
 }
 
 .search-box input {
     width: 100%;
     min-width: 0;
-    padding: 12px 0;
+    padding: 13px 0;
     border: none;
     outline: none;
     background: transparent;
     font-size: 12px;
+    color: var(--blue);
+}
+
+.search-box input::placeholder {
+    color: #8993a3;
 }
 
 .search-box input:focus-visible {
@@ -584,6 +686,11 @@ img {
 
 .footer-link {
     color: #ff7b84;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: #ffffff;
 }
 
 .copyright {
@@ -711,10 +818,13 @@ img {
 
     .filter {
         padding: 12px 8px;
+        border-radius: 25px;
+        font-size: 11px;
     }
 
     .search-box {
         width: 100%;
+        min-width: 0;
     }
 
     .product-grid {
@@ -774,6 +884,11 @@ img {
     .copyright {
         text-align: left;
     }
+
+    .language-btn {
+        min-width: 31px;
+        padding: 7px 8px;
+    }
 }
 
 @media (max-width: 360px) {
@@ -784,10 +899,19 @@ img {
     .product-image {
         height: 200px;
     }
+
+    .filters {
+        gap: 7px;
+    }
+
+    .filter {
+        padding: 11px 5px;
+        font-size: 10px;
+    }
 }
 
 /* ========================================
-   SECCIÓN DE FACTURACIÓN - EL VILSITO
+   SECCION DE FACTURACION - EL VILSITO
 ======================================== */
 
 .billing-section {
@@ -824,7 +948,7 @@ img {
 .billing-section h2 {
     margin: 0 0 18px;
     color: #061b36;
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: clamp(2.2rem, 5vw, 3.5rem);
     font-weight: 800;
     line-height: 1.1;
@@ -838,7 +962,7 @@ img {
     max-width: 900px;
     margin: 0 0 35px;
     color: #475569;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 1rem;
     line-height: 1.8;
 }
@@ -869,10 +993,12 @@ img {
     font-size: 1.8rem;
 }
 
+/* Titulos de tarjetas */
+
 .billing-card h3 {
     margin: 0 0 12px;
     color: #061b36;
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
 }
@@ -880,7 +1006,7 @@ img {
 .billing-card > p {
     margin: 0 0 18px;
     color: #475569;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 0.95rem;
     line-height: 1.7;
 }
@@ -900,7 +1026,7 @@ img {
     position: relative;
     padding-left: 30px;
     color: #263449;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -946,7 +1072,7 @@ img {
     display: block;
     margin-bottom: 7px;
     color: #061b36;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 0.8rem;
     font-weight: 800;
 }
@@ -954,7 +1080,7 @@ img {
 .billing-contact-item p {
     margin: 0;
     color: #334155;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 0.9rem;
     line-height: 1.6;
     overflow-wrap: anywhere;
@@ -996,7 +1122,7 @@ img {
 .billing-notice h3 {
     margin: 0;
     color: #ffffff;
-    font-family: 'Barlow Condensed', sans-serif;
+    font-family: "Barlow Condensed", sans-serif;
     font-size: 1.4rem;
     font-weight: 700;
 }
@@ -1004,7 +1130,7 @@ img {
 .billing-notice p {
     margin: 0 0 18px;
     color: #e2e8f0;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 0.95rem;
     line-height: 1.8;
 }
@@ -1019,7 +1145,7 @@ img {
     color: #ff7b85;
 }
 
-/* Adaptación para celulares */
+/* Adaptacion para celulares */
 
 @media (max-width: 650px) {
     .billing-section {
@@ -1055,5 +1181,18 @@ img {
     .billing-notice h3 {
         font-size: 1.2rem;
         line-height: 1.4;
+    }
+}
+
+/* ACCESIBILIDAD: REDUCIR ANIMACIONES */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
