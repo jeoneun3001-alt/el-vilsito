@@ -645,8 +645,6 @@ const yearElement = document.getElementById("year");
 let categoriaActual = "Todos";
 let idiomaActual = localStorage.getItem("vilsitoLanguage") || "es";
 
-// TRADUCCIONES DE LA PAGINA
-
 const traducciones = {
     es: {
         metaDescription: "Conoce el menú de El Vilsito Taquería.",
@@ -884,9 +882,6 @@ const nombresIngles = {
     "Piña rellena de coco": "Pineapple Filled with Coconut"
 };
 
-
-// TRADUCCION DE CATEGORIAS
-
 const categoriasIngles = {
     "Todos": "All",
     "Tacos": "Tacos",
@@ -899,9 +894,6 @@ const categoriasIngles = {
     "Postres": "Desserts",
     "Paletas": "Ice Pops"
 };
-
-
-// TRADUCCION DE DESCRIPCIONES
 
 function traducirDescripcion(texto) {
     if (idiomaActual === "es") return texto;
@@ -960,9 +952,6 @@ function traducirDescripcion(texto) {
     );
 }
 
-
-// OBTENER EL TEXTO SEGUN EL IDIOMA
-
 function textoProducto(producto) {
     return idiomaActual === "en"
         ? (nombresIngles[producto.nombre] || producto.nombre)
@@ -974,9 +963,6 @@ function categoriaProducto(categoria) {
         ? (categoriasIngles[categoria] || categoria)
         : categoria;
 }
-
-
-// CAMBIAR IDIOMA DE LA PAGINA
 
 function cambiarIdioma(idioma) {
     if (!traducciones[idioma]) return;
@@ -1034,17 +1020,11 @@ function cambiarIdioma(idioma) {
     mostrarProductos();
 }
 
-
-// BOTONES DEL SELECTOR DE IDIOMA
-
 document.querySelectorAll(".language-btn").forEach(boton => {
     boton.addEventListener("click", () => {
         cambiarIdioma(boton.dataset.lang);
     });
 });
-
-
-// MOSTRAR PRODUCTOS
 
 function mostrarProductos() {
     if (!productGrid || !searchInput || !resultsCount || !noResults) return;
@@ -1127,9 +1107,6 @@ function mostrarProductos() {
     noResults.hidden = productosFiltrados.length !== 0;
 }
 
-
-// FILTRAR POR CATEGORIA
-
 filters.addEventListener("click", evento => {
     const boton = evento.target.closest("button[data-category]");
 
@@ -1148,12 +1125,7 @@ filters.addEventListener("click", evento => {
 });
 
 
-// BUSCAR PRODUCTOS
-
 searchInput.addEventListener("input", mostrarProductos);
-
-
-// MENU DE NAVEGACION PARA CELULARES
 
 menuToggle.addEventListener("click", () => {
     const estaAbierto = navigation.classList.toggle("open");
@@ -1169,8 +1141,6 @@ menuToggle.addEventListener("click", () => {
 });
 
 
-// CERRAR EL MENU AL SELECCIONAR UNA SECCION
-
 navigation.querySelectorAll("a").forEach(enlace => {
     enlace.addEventListener("click", () => {
         navigation.classList.remove("open");
@@ -1182,9 +1152,6 @@ navigation.querySelectorAll("a").forEach(enlace => {
         menuToggle.textContent = "☰";
     });
 });
-
-
-// DATOS DEL PIE DE PAGINA
 
 if (yearElement) {
     yearElement.textContent = new Date().getFullYear();
